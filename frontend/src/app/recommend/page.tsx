@@ -191,7 +191,7 @@ function RecommendContent() {
             }
 
             // ── Fetch pre-seeded stock data ────────────────────────────────
-            let stocks = undefined;
+            let stocks: any = undefined;
             if (!specific) {
                 stocks = await getStocksByCountry(c).catch(() => []);
             }
