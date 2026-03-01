@@ -94,7 +94,7 @@ export default function PortfolioPage() {
                                 pnlPct: ((currentPrice - e.bought_price) / e.bought_price) * 100 
                             };
                         } catch (err) {
-                            const cp = e.currentPrice || e.bought_price * 1.1;
+                            const cp = e.bought_price * 1.1;
                             return { 
                                 ...e, 
                                 currentPrice: cp, 
