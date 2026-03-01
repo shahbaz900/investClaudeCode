@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
         }
 
         // Fetch pre-seeded stocks for general queries
-        let stocks = undefined;
+        let stocks: any = undefined;
         if (!isSpecific) {
             try { stocks = await getStocksByCountry(country); } catch { /* ignore */ }
         }
