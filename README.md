@@ -4,6 +4,33 @@
 
 A personalized AI stock recommendation platform powered by **Mistral Large 3** that works **globally**, is **cost-efficient** (24h caching), and handles both general country-based queries and specific stock symbol lookups.
 
+## 🌍 Live Demo
+
+- **Frontend**: [https://invest-claude-code.vercel.app](https://invest-claude-code.vercel.app)
+- **Backend API**: [https://investclaudecode-production.up.railway.app](https://investclaudecode-production.up.railway.app)
+
+## ✨ Key Features
+
+- **AI-Powered Recommendations**: Mistral Large 3 analyzes market data and provides personalized stock picks
+- **Investment Goal Planning**: 1, 5, 10, and 15-year SIP (Systematic Investment Plan) projections with visual charts
+- **Global Multi-Country Support**: Works with stocks from US, UK, Pakistan, India, Germany, and more
+- **Smart Questionnaire**: Simplifies complex investment concepts for beginner-friendly experience
+- **Portfolio Management**: Track your recommended stocks, shares, and real-time P&L
+- **Cost-Efficient Caching**: 24h cache eliminates redundant API calls to Mistral
+- **Authentication**: Secure Supabase auth for portfolio persistence
+- **Responsive Design**: Beautiful dark theme UI optimized for desktop and mobile
+
+## 🛠 Tech Stack
+
+| Component | Technology |
+|-----------|------------|
+| **Frontend** | Next.js 14, React 18, TypeScript, Tailwind CSS |
+| **Backend** | FastAPI (Python 3.11), Mistral Large 3 API |
+| **Database** | Supabase (PostgreSQL) |
+| **Auth** | Supabase Auth |
+| **Deployment** | Vercel (frontend), Railway (backend) |
+| **External APIs** | Mistral AI, FinnHub (stock pricing) |
+
 ---
 
 ## 📁 Project Structure
@@ -44,7 +71,7 @@ investClaudeCode/
 
 ---
 
-## ⚡ Quick Start
+## ⚡ Quick Start (Local Development)
 
 ### 1. Supabase Setup
 
@@ -142,25 +169,82 @@ MISTRAL_API_KEY=your-mistral-api-key
 
 ---
 
-## 💡 Cost Optimization
-
-- **Mistral Large 3** — high-quality reasoning for stock analysis
-- **24h Supabase cache** — country-level queries cached, eliminating repeat API calls
-- **Pre-fetched stock data** — Supabase stores fundamentals; Mistral only scores them
-- **Max 1024 tokens** per response — keeps latency and cost low
-
 ---
 
-## 🚀 Deployment
+## 🎯 How to Test
 
-| Service      | Recommended Host              |
-|--------------|-------------------------------|
-| Frontend     | [Vercel](https://vercel.com)  |
-| AI Backend   | [Railway](https://railway.app) or [Render](https://render.com) |
-| Database     | [Supabase](https://supabase.com) |
+1. **Visit the live demo**: [https://invest-claude-code.vercel.app](https://invest-claude-code.vercel.app)
+2. Click "**AI Investment Planner**"
+3. Fill out the questionnaire with your investment details
+4. View AI-generated stock recommendations + 15-year projections
+5. (Optional) Sign up and add stocks to your portfolio
+
+### Test Data
+- **Country**: United States, United Kingdom, Pakistan, India, Germany
+- **Risk Levels**: Conservative (4.5% return), Moderate (7.5%), Aggressive (10.5%)
+- **Investment Horizons**: 1yr, 5yr, 10yr, 15yr projections
 
 ---
 
 ## ⚠️ Disclaimer
 
 SmartStockPicker is an educational demo. AI-generated stock recommendations are **not financial advice**. Always consult a licensed financial advisor before investing.
+
+---
+
+## 📝 Notes for Judges
+
+### Why Mistral Large 3?
+We chose **Mistral Large 3** because:
+- **Superior reasoning** for financial analysis and stock evaluation
+- **Cost-effective** with high token limits for detailed recommendations
+- **Fast inference** for real-time user experience
+- **Global context understanding** for international stock markets
+
+### Architecture Highlights
+- **SSE (Server-Side Events) caching** dramatically reduces API costs
+- **Separation of concerns**: Frontend handles UI, backend handles AI
+- **Scalable database schema** supports unlimited users and portfolios
+- **Type-safe with TypeScript** across entire stack
+
+### How We Built This
+- Integrated Mistral AI Chat API into a FastAPI backend
+- Built interactive investment charts with SVG (no external charting libs)
+- Implemented 24h smart caching to minimize costs
+- Deployed across Vercel + Railway for production-grade infrastructure
+
+---
+
+## 🚀 Deployment
+
+| Service      | URL | Status |
+|--------------|-----|--------|
+| **Frontend** | [invest-claude-code.vercel.app](https://invest-claude-code.vercel.app) | ✅ Live |
+| **Backend** | [investclaudecode-production.up.railway.app](https://investclaudecode-production.up.railway.app) | ✅ Live |
+| **Database** | Supabase | ✅ Live |
+
+### Deploy Your Own
+
+**Frontend (Vercel):**
+```bash
+cd frontend
+npm install
+# Push to GitHub and connect to Vercel
+```
+
+**Backend (Railway):**
+```bash
+# Railway auto-detects Dockerfile
+# Just connect your GitHub repo
+```
+
+Set environment variables in each platform's dashboard (see `.env.example` files).
+
+---
+
+## 📚 Additional Resources
+
+- [Mistral AI Documentation](https://docs.mistral.ai)
+- [Next.js App Router](https://nextjs.org/docs)
+- [Supabase Auth](https://supabase.com/docs/guides/auth)
+- [FastAPI Docs](https://fastapi.tiangolo.com)
